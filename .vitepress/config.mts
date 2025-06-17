@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress';
 import AutoNav from 'vite-plugin-vitepress-auto-nav';
 import { searchOptions, markdown, socialLinks } from './configs';
+import { groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 
 export default defineConfig({
   base: '/docs/',
@@ -12,7 +13,7 @@ export default defineConfig({
   markdown,
 
   vite: {
-    plugins: [AutoNav({})],
+    plugins: [AutoNav(), groupIconVitePlugin()],
   },
 
   vue: {},

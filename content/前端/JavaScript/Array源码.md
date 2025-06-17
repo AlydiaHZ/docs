@@ -10,7 +10,7 @@
 
 ::: code-group
 
-```js
+```js [map.js]
 Array.prototype.map = function(callbackfn, thisArg) {
   // 异常处理
   if (this == null) {
@@ -53,7 +53,7 @@ Array.prototype.map = function(callbackfn, thisArg) {
 // 代码亲测已通过
 ```
 
-```ts
+```ts [map.ts]
 export {};
 
 // 1. 给 Array 添加声明（扩展内置接口）
@@ -121,7 +121,7 @@ arr.map(ele => {
 简单看下面几个例子，在 `callbackfn` 中不要改变原数组，不然会有意想不到的情况发生。
 ::: code-group
 
-```js
+```js [step1.js]
 // 1、原数组新增元素，不受影响
 let arr = [1, 2, 3]
 let result = arr.map((ele, index, array) => {
@@ -131,7 +131,7 @@ let result = arr.map((ele, index, array) => {
 console.log(result) 
 // 2, 4, 6
 ```
-```js
+```js [step2.js]
 // 2、原数组修改当前索引之前的元素，不受影响
 let arr = [1, 2, 3]
 let result = arr.map((ele, index, array) => {
@@ -143,7 +143,7 @@ let result = arr.map((ele, index, array) => {
 console.log(result) 
 // 2, 4, 6
 ```
-```js
+```js [step3.js]
 // 3、原数组修改当前索引之后的元素，受影响
 let arr = [1, 2, 3]
 let result = arr.map((ele, index, array) => {
@@ -161,7 +161,7 @@ console.log(result)
 根据[【进阶 3-3 期】](https://muyiy.cn/blog/3/3.3.html) 中对于 call 的解读，传入 undefined 时，非严格模式下指向 Window，严格模式下为 undefined。记住这时候回调函数不能用箭头函数，因为箭头函数是没有自己的 this 的。
 :::code-group
 
-```js
+```js [step1.js]
 // 1、传入 thisArg 但使用箭头函数
 let name = 'Muyiy'
 let obj = {
@@ -176,7 +176,7 @@ console.log(result)
 // ["1", "2", "3"]，此时 this 指向 window
 // 那为啥不是 "Muyiy1" 这样呢，不急，第 3 步介绍
 ```
-```js
+```js [step2.js]
 // 2、传入 thisArg，使用普通函数
 let name = 'Muyiy'
 let obj = {
@@ -190,7 +190,7 @@ let result = arr.map(obj.callback, obj);
 console.log(result) 
 // ["Hello1", "Hello2", "Hello3"]，完美
 ```
-```js
+```js [step3.js]
 // 3、不传入 thisArg，name 使用 let 声明
 let name = 'Muyiy'
 let obj = {
@@ -205,7 +205,7 @@ console.log(result)
 // ["1", "2", "3"]
 // 为什么呢，因为 let 和 const 声明的变量不会挂载到 window 上
 ```
-```js
+```js [step4.js]
 // 4、不传入 thisArg，name 使用 var 声明
 var name = 'Muyiy'
 let obj = {
@@ -220,7 +220,7 @@ console.log(result)
 // ["Muyiy1", "Muyiy2", "Muyiy3"]
 // 看看，改成 var 就好了
 ```
-```js
+```js [step5.js]
 // 5、严格模式
 'use strict'
 var name = 'Muyiy'

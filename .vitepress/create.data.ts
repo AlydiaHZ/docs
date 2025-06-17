@@ -17,8 +17,6 @@ export default createContentLoader(
   {
     includeSrc: true,
     async transform(data) {
-      console.log(1);
-      
       const promises: Promise<any>[] = [];
 
       data.forEach(({ frontmatter, src, url }) => {
@@ -75,6 +73,8 @@ export default createContentLoader(
             // linkText: new Date(fileTimeInfo[1]).toLocaleDateString(),
             // 存储时间信息用于排序
             fileTimeInfo,
+            icon: frontmatter.icon,
+            updatedTime: formatTimeDiff(fileTimeInfo[1], +new Date()),
           })
         );
 
@@ -90,6 +90,28 @@ export default createContentLoader(
     },
   }
 );
+
+function formatTimeDiff(startTimestamp, endTimestamp) {
+  const diff = Math.abs(endTimestamp - startTimestamp); // 毫秒差值
+
+  const minute = 60 * 1000;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+  const second = 1000;
+
+  if (diff >= day) {
+    return Math.floor(diff / day) + " 天";
+  } else if (diff >= hour) {
+    return Math.floor(diff / hour) + " 小时";
+  } else if (diff >= minute) {
+    return Math.floor(diff / minute) + " 分钟";
+  } else if (diff >= second) {
+    return Math.floor(diff / second) + " 秒";
+  } else {
+    return diff + " 毫秒";
+  }
+}
+
 
 // 获取文件提交时间
 function getGitTimestamp(filePath: string) {

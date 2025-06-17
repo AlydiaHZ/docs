@@ -1,6 +1,6 @@
 <template>
-  <VPHero name="zrjhzDocs" text="个人技术文档" :actions="actions" :image="image"/>
-  <!-- <VPFeatures :features="pages" /> -->
+  <VPHero name="zrjhzDocs" text="个人技术文档" :actions="actions" :image="image" />
+  <VPFeatures :features="pages" />
 </template>
 
 <script setup lang="ts">
@@ -18,24 +18,33 @@ const actions = [
 ]
 
 function randomPage(): string {
-  const length = pages.length - 1
+  const length = pages.length - 1;
   return pages[Math.floor(Math.random() * length)]!.link!
 }
+
+
+
+function formatTimeDiff(startTimestamp: number, endTimestamp: number): string {
+  const diff = Math.abs(endTimestamp - startTimestamp); // 毫秒差值
+
+  const minute = 60 * 1000;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+  const second = 1000;
+
+  if (diff >= day) {
+    return Math.floor(diff / day) + " 天";
+  } else if (diff >= hour) {
+    return Math.floor(diff / hour) + " 小时";
+  } else if (diff >= minute) {
+    return Math.floor(diff / minute) + " 分钟";
+  } else if (diff >= second) {
+    return Math.floor(diff / second) + " 秒";
+  } else {
+    return diff + " 毫秒";
+  }
+}
+
 </script>
 
-<style scoped>
-.details {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-}
-
-.vp-doc h2 {
-  margin: 0;
-  border: none;
-  padding: 0;
-}
-</style>
+<style></style>

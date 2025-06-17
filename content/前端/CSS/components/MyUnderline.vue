@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .title {
     color: #333;
     line-height: 2;
