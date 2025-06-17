@@ -12,7 +12,7 @@ export { data };
 // createContentLoader会默认忽略'**/node_modules/**', '**/dist/**'
 export default createContentLoader(
   [
-    '!(.vitepress|public|images|.github|components|snippets)/**/!(index|README).md',
+    '!(.vitepress|assert|images|.github|components|snippets)/**/!(index|README).md',
   ],
   {
     includeSrc: true,

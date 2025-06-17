@@ -14,7 +14,7 @@ import VPFeatures from './VPFeatures.vue'
 import { data as pages } from '../../.vitepress/create.data'
 
 const tagline = `累计更新${pages.length}篇文章`
-const image = { light: './assert/mew.png', dark: 'assert/ooh.png' }
+const image = { light: 'mew.png', dark: 'ooh.png' }
 const actions = [
   {
     text: '随便逛逛',
