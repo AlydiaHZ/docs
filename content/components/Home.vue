@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import VPHero from 'vitepress/dist/client/theme-default/components/VPHero.vue'
-import VPFeatures from 'vitepress/dist/client/theme-default/components/VPFeatures.vue'
+import VPFeatures from './VPFeatures.vue'
 import { data as pages } from '../../.vitepress/create.data'
 
 const tagline = `累计更新${pages.length}篇文章`
@@ -24,6 +24,8 @@ const actions = [
 
 function randomPage(): string {
   const length = pages.length - 1;
+  console.log(pages);
+  
   return pages[Math.floor(Math.random() * length)]!.link!
 }
 </script>
@@ -35,8 +37,6 @@ function randomPage(): string {
     text-align: right;
   }
 }
-
-
 
 .VPFeatures a {
   text-decoration: none;
