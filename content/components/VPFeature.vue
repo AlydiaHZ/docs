@@ -12,6 +12,7 @@ defineProps<{
     rel?: string
     target?: string
     updatedTime?: string
+    fileTimeInfo?: number
 }>()
 </script>
 

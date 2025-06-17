@@ -2,6 +2,7 @@
 import type { DefaultTheme } from 'vitepress/theme'
 import { computed } from 'vue'
 import VPFeature from './VPFeature.vue'
+import { number } from 'echarts'
 
 
 export interface Feature {
@@ -13,6 +14,7 @@ export interface Feature {
   rel?: string
   target?: string
   updatedTime?: string
+  fileTimeInfo: [number, number]
 }
 
 const props = defineProps<{

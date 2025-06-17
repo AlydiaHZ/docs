@@ -24,10 +24,36 @@ const actions = [
 
 function randomPage(): string {
   const length = pages.length - 1;
-  console.log(pages);
+  
+  pages.forEach(page => {
+    page.updatedTime = formatTimeDiff(page.fileTimeInfo[1], +new Date())
+  })
 
   return pages[Math.floor(Math.random() * length)]!.link!
 }
+
+
+function formatTimeDiff(startTimestamp: number, endTimestamp: number): string {
+  const diff = Math.abs(endTimestamp - startTimestamp); // 毫秒差值
+
+  const minute = 60 * 1000;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+  const second = 1000;
+
+  if (diff >= day) {
+    return Math.floor(diff / day) + " 天";
+  } else if (diff >= hour) {
+    return Math.floor(diff / hour) + " 小时";
+  } else if (diff >= minute) {
+    return Math.floor(diff / minute) + " 分钟";
+  } else if (diff >= second) {
+    return Math.floor(diff / second) + " 秒";
+  } else {
+    return diff + " 毫秒";
+  }
+}
+
 </script>
 
 <style lang="scss">
