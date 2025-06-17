@@ -42,7 +42,8 @@ const grid = computed(() => {
       <div class="items">
         <div v-for="feature in features" :key="feature.title" class="item" :class="[grid]">
           <VPFeature :icon="feature.icon" :title="feature.title" :details="feature.details" :link="feature.link"
-            :link-text="feature.linkText" :rel="feature.rel" :target="feature.target" :updated-time="feature.updatedTime" />
+            :link-text="feature.linkText" :rel="feature.rel" :target="feature.target"
+            :updated-time="feature.updatedTime" />
         </div>
       </div>
     </div>

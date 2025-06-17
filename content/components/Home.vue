@@ -25,7 +25,7 @@ const actions = [
 function randomPage(): string {
   const length = pages.length - 1;
   console.log(pages);
-  
+
   return pages[Math.floor(Math.random() * length)]!.link!
 }
 </script>
@@ -36,25 +36,5 @@ function randomPage(): string {
     padding: 20px 64px;
     text-align: right;
   }
-}
-
-.VPFeatures a {
-  text-decoration: none;
-}
-
-.details {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  -webkit-box-orient: vertical;
-  word-break: break-all;
-}
-
-.vp-doc h2 {
-  margin: 0;
-  border: none;
-  padding: 0;
 }
 </style>
