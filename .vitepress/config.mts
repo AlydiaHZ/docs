@@ -6,7 +6,7 @@ import { groupIconVitePlugin } from 'vitepress-plugin-group-icons';
 export default defineConfig({
   base: '/docs/',
   lang: 'zh-Hans',
-  title: 'zrjhzDocs',
+  title: 'AlydiaDocs',
   description: '个人前端技术文档',
   srcDir: 'content',
   lastUpdated: true,
@@ -19,7 +19,7 @@ export default defineConfig({
   vue: {},
 
   themeConfig: {
-    siteTitle: 'zrjhzDocs',
+    siteTitle: 'AlydiaDocs',
     search: { provider: 'local', options: searchOptions },
     socialLinks,
     outline: {
@@ -36,7 +36,7 @@ export default defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/zrjhz/docs/edit/main/:path',
+      pattern: 'https://github.com/alydiahz/docs/edit/main/content/:path',
       text: '修改本文',
     },
 
