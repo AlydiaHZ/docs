@@ -12,3 +12,4 @@
   "include": ["docs/**/*"],
   "exclude": ["node_modules"]
 }
+ 
