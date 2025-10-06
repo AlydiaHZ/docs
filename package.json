@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "技术文档",
   "scripts": {
-    "dev": "vitepress dev",
+    "dev": "vitepress dev", 
     "build": "vitepress build",
     "preview": "vitepress preview"
   },
